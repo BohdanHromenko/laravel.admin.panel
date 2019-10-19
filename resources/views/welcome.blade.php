@@ -68,7 +68,27 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+
+                        @if (Auth::user()->isDisabled())
+                            <a href="{{ url('/') }}">Home</a>
+                        @elseif (Auth::user()->isUser())
+                            <a href="{{ url('/user/index') }}">Cabinet</a>
+                            <a href="{{ url('/') }}">Home</a>
+                        @elseif (Auth::user()->isVisitor())
+                            <a href="{{ url('/') }}">Home</a>
+                        @elseif (Auth::user()->isAdministrator())
+                            <a href="{{ url('/admin/index') }}">Admin Panel</a>
+                            <a href="{{ url('/') }}">Home</a>
+                        @endif
+
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                Logout</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -84,16 +104,7 @@
                     Laravel
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+
 
             </div>
         </div>
