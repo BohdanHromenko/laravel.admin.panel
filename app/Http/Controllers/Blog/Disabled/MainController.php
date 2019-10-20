@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Blog\Disabled;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use MetaTag;
 
 class MainController extends Controller
 {
@@ -14,7 +15,10 @@ class MainController extends Controller
      */
     public function index()
     {
-        //
+        MetaTag::setTags([
+            'title' => 'User disable panel',
+        ]);
+        return view('blog.disabled.index');
     }
 
     /**

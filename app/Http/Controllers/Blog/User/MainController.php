@@ -4,9 +4,16 @@ namespace App\Http\Controllers\Blog\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use MetaTag;
 
 class MainController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,10 @@ class MainController extends Controller
      */
     public function index()
     {
-        //
+        MetaTag::setTags([
+            'title' => 'User',
+            ]);
+        return view('blog.user.index');
     }
 
     /**
