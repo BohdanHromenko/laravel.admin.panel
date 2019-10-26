@@ -15,7 +15,7 @@ class Category extends Model
         'title',
         'alias',
         'parent_id',
-        'keyWords',
+        'keywords',
         'description',
         'created_at',
         'updated_at',
