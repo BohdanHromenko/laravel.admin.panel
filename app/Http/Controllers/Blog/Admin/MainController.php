@@ -23,13 +23,12 @@ class MainController extends AdminBaseController
 
     public function index()
     {
-
         $countOrders = MainRepository::getCountOrders();
         $countUsers = MainRepository::getCountUsers();
         $countProducts = MainRepository::getCountProducts();
         $countCategories = MainRepository::getCountCategories();
 
-        $perpage = 4;
+        $perpage = 10;
 
         $last_orders = $this->orderRepository->getAllOrders($perpage);
         $last_products = $this->productRepository->getLastProducts($perpage);
