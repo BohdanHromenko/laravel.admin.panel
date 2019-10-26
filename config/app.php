@@ -177,6 +177,7 @@ return [
 
         /** My Providers gor this project */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Lavary\Menu\ServiceProvider::class,
 
     ],
 
@@ -228,6 +229,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        /** My Aliases */
+        'MetaTag' => Fomvasss\LaravelMetaTags\Facade::class,
+        'Menu' => Lavary\Menu\Facade::class,
 
     ],
 
