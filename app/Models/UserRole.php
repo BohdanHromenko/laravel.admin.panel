@@ -9,18 +9,12 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $user_id
  * @property int $role_id
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserRole newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserRole newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserRole query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserRole whereRoleId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\UserRole whereUserId($value)
- * @mixin \Eloquent
  */
 class UserRole extends Model
 {
     protected $fillable = [
-        'name',
-        'id',
+        'user_id',
+        'role_id',
     ];
 
     public $timestamps = false;

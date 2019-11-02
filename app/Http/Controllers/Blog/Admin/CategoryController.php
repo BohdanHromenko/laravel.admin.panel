@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Blog\Admin;
 use App\Http\Requests\BlogCategoryUpdateRequest;
 use App\Models\Admin\Category;
 use App\Repositories\Admin\CategoryRepository;
+use Exception;
 use Illuminate\Http\Response;
 use MetaTag;
 
@@ -40,7 +41,7 @@ class CategoryController extends AdminBaseController
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function mydel()
     {
